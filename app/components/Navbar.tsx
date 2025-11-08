@@ -1,9 +1,9 @@
-import { Terminal } from "lucide-react";
+import { Terminal, Monitor } from "lucide-react";
 
 const Navbar = () => {
   return (
     <nav
-      className="flex justify-between items-center fixed top-6 left-1/2 -translate-x-1/2 max-w-4xl
+      className="flex justify-between items-center fixed top-6 left-1/2 -translate-x-1/2 max-w-5xl
      w-[90%] mx-auto rounded-full px-3 py-3
      border-[0.5px] border-light/20 bg-black/50 backdrop-blur-sm
      text-light backdrop-filter
@@ -18,12 +18,13 @@ const Navbar = () => {
       </span>
       <div>
         <div
-          className="flex gap-2 px-4 py-[2px] rounded-full border-[0.5px] border-light/20 cursor-pointer
+          className="flex items-center gap-2 px-4 py-[2px] rounded-full border-[0.5px] border-light/20 cursor-pointer
         hover:border-light/30 transition-all duration-300 ease-in-out
         "
         >
-          <Terminal />
-          <span>Terminal</span>
+          {/* <Terminal /> */}
+          <Monitor className="h-4 w-4" />
+          <span>GUI</span>
         </div>
       </div>
     </nav>
