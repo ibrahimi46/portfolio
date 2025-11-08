@@ -1,4 +1,4 @@
-# 🧑‍💻 Anas' Developer Portfolio
+# 🧑‍💻 My Portfolio
 
 A modern, **terminal-inspired** portfolio built with **Next.js**, **TypeScript**, and **Tailwind CSS** — designed to feel like coding in your own shell.  
 Explore commands, discover projects, and get to know the developer behind the keyboard.
