@@ -1,3 +1,9 @@
+import Contact from "../components/terminal-components/Contact";
+import About from "../components/terminal-components/About";
+import Help from "../components/terminal-components/Help";
+import Skills from "../components/terminal-components/Skills";
+import Resume from "../components/terminal-components/Resume";
+
 interface handleInputProps {
   command: string;
   setHistory: React.Dispatch<
@@ -16,7 +22,14 @@ export const handleInput = ({
     case "ls":
       setHistory((prev) => [
         ...prev,
-        { command: command, output: "/home /usr /bin" },
+        {
+          command: command,
+          output: (
+            <span className="text-green-400 text-sm font-mono">
+              bin/ &nbsp; projects/ &nbsp; hpc/ &nbsp; docs/
+            </span>
+          ),
+        },
       ]);
       break;
     case "clear":
@@ -36,7 +49,14 @@ export const handleInput = ({
         ...prev,
         {
           command: command,
-          output: "Nice try... 😂",
+          output: (
+            <span className="text-red-400 text-sm font-mono animate-pulse">
+              💥 Permission denied. System protected by{" "}
+              <span className="text-cyan-300">AnasOS Firewall v2.1</span>.
+              <br />
+              (Nice try, pentester 🕵️‍♂️)
+            </span>
+          ),
         },
       ]);
       break;
@@ -45,7 +65,7 @@ export const handleInput = ({
         ...prev,
         {
           command: command,
-          output: "about contact projects resume skills date",
+          output: <Help />,
         },
       ]);
       break;
@@ -54,7 +74,20 @@ export const handleInput = ({
         ...prev,
         {
           command: command,
-          output: <p>{new Date().toLocaleDateString()}</p>,
+          output: (
+            <span className="text-green-400 text-sm font-mono">
+              🗓️{" "}
+              {new Date().toLocaleString("en-US", {
+                weekday: "short",
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                timeZoneName: "short",
+              })}
+            </span>
+          ),
         },
       ]);
       break;
@@ -63,8 +96,7 @@ export const handleInput = ({
         ...prev,
         {
           command: command,
-          output:
-            "I am Anas Ibrahimi, a full stack developer based in Jeddah, Saudi Arabia.",
+          output: <About />,
         },
       ]);
       break;
@@ -73,7 +105,7 @@ export const handleInput = ({
         ...prev,
         {
           command: command,
-          output: "💻 React ⚡ Next.js 🎨 Tailwind 🔧 TypeScript 🧠 Node.js",
+          output: <Skills />,
         },
       ]);
       break;
@@ -82,8 +114,7 @@ export const handleInput = ({
         ...prev,
         {
           command: command,
-          output:
-            "📧 Email: anasibrahimi4664@gmail.com, 🐙 GitHub: https://github.com/ibrahimi46",
+          output: <Contact />,
         },
       ]);
       break;
@@ -92,18 +123,7 @@ export const handleInput = ({
         ...prev,
         {
           command: command,
-          output: (
-            <span>
-              📄 You can view my resume here:{" "}
-              <a
-                href="https://drive.google.com/file/d/1HGrpCTHpYWUwtfdyISdIqL46qiqW21zW/view?usp=share_link"
-                target="_blank"
-                className="text-blue-400 underline hover:text-blue-300"
-              >
-                Open Resume ↗
-              </a>
-            </span>
-          ),
+          output: <Resume />,
         },
       ]);
       break;
