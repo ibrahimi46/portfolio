@@ -15,6 +15,7 @@ const Terminal = () => {
 
   const inputRef = useRef<HTMLInputElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const bootMessages = [
     "⚙️ Loading modules...",
@@ -49,6 +50,13 @@ const Terminal = () => {
     audioRef.current = audio;
   }, []);
 
+  useEffect(() => {
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [history, bootComplete, input]);
+
   return (
     <div
       className="bg-black/40 text-light p-4 mt-14 rounded-lg
@@ -57,6 +65,7 @@ const Terminal = () => {
       border-[0.5px] border-light/10 shadow-sm
       text-sm overflow-auto scrollbar-hide
       "
+      ref={scrollRef}
     >
       {bootHistory.length > 0 &&
         bootHistory.map((bootMsg, idx) => {
@@ -92,7 +101,7 @@ const Terminal = () => {
                 input.length > 0 ? "hidden" : "animate-pulse"
               } cursor-default`}
             >
-              |
+              █
             </span>
             <input
               type="text"
