@@ -46,7 +46,7 @@ const Terminal = () => {
       w-[90vw] sm:w-[80vw] md:w-[70vw] max-w-[800px]
       h-[80vh] sm:h-[75vh] md:h-[70vh] max-h-[600px]
       border-[0.5px] border-light/10 shadow-sm
-      text-sm
+      text-sm bg-orange-500 overflow-auto scrollbar-hide
       "
     >
       {bootHistory.length > 0 &&
