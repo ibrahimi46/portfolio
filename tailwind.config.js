@@ -6,12 +6,7 @@ module.exports = {
     "./*.html",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        manrope: ["var(--manrope)"],
-        "ibm-plex-mono": ["var(--ibm-plex-mono)"],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
