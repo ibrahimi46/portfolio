@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Manrope, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "./components/Navbar";
-
 const manrope = Manrope({
   variable: "--font-sans",
   subsets: ["latin"],
@@ -32,7 +30,6 @@ export default function RootLayout({
       <body
         className={`${manrope.variable} ${ibmPlexMono.variable} antialiased`}
       >
-        <Navbar />
         {children}
       </body>
     </html>

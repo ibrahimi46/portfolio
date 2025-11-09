@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { handleInput } from "../utils/handleInput";
 import { motion } from "framer-motion";
+import { Monitor } from "lucide-react";
 
 const mockHistory = [{ command: "pwd", output: "/anas-portfolio" }];
 
@@ -63,14 +64,22 @@ const Terminal = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-      className="bg-black/40 text-light p-4 mt-14 rounded-lg
-      w-[90vw] sm:w-[80vw] md:w-[70vw] max-w-[800px]
-      h-[80vh] sm:h-[75vh] md:h-[70vh] max-h-[600px]
-      border-[0.5px] border-light/10 shadow-sm
-      text-sm overflow-auto scrollbar-hide
+      className="bg-terminal-bg text-terminal-text p-4
+      h-full w-full relative
+      border-[1px] border-light/20 rounded-md
+      text-sm sm:text-lg overflow-auto scrollbar-hide
       "
       ref={scrollRef}
     >
+      {/** GUI switch */}
+      <div
+        className="flex items-center gap-2 px-4 py-[2px] rounded-lg border-[0.5px] border-light/20 cursor-pointer
+        hover:border-light/30 transition-all duration-300 ease-in-out absolute top-3 right-3
+        "
+      >
+        <Monitor className="h-4 w-4" />
+        <span>GUI</span>
+      </div>
       {bootHistory.length > 0 &&
         bootHistory.map((bootMsg, idx) => {
           return (

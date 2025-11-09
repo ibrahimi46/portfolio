@@ -2,7 +2,7 @@ import Terminal from "./terminal/Terminal";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-waves">
+    <main className="h-screen w-screen bg-dark p-2">
       <Terminal />
     </main>
   );

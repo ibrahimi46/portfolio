@@ -1,6 +1,7 @@
 "use client";
 import { Monitor } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -9,23 +10,24 @@ const Navbar = () => {
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="flex justify-between items-center max-w-5xl
-     w-full rounded-full px-3 py-2
-     border-[0.5px] border-light/20 bg-black/50 backdrop-blur-sm
-     text-light backdrop-filter z-50
-     "
+        className="flex justify-between items-center max-w-5xl w-full 
+rounded-full px-4 py-2
+border border-white/10 bg-white/10 backdrop-blur-lg
+text-light z-50"
       >
-        <motion.div
-          className="font-mono text-md cursor-pointer
+        <Link href={"/"}>
+          <motion.div
+            className="font-mono text-md cursor-pointer
       hover:text-[17px] transition-all duration-500 ease-in-out
       "
-          initial={{ y: -30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.1, ease: "easeOut" }}
-        >
-          $ibrahimi@portfolio
-        </motion.div>
-        <div>
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.1, ease: "easeOut" }}
+          >
+            $ibrahimi@portfolio
+          </motion.div>
+        </Link>
+        <Link href={"/gui"}>
           <motion.div
             className="flex items-center gap-2 px-4 py-[2px] rounded-full border-[0.5px] border-light/20 cursor-pointer
         hover:border-light/30 transition-all duration-300 ease-in-out
@@ -38,7 +40,7 @@ const Navbar = () => {
             <Monitor className="h-4 w-4" />
             <span>GUI</span>
           </motion.div>
-        </div>
+        </Link>
       </motion.nav>
     </div>
   );
