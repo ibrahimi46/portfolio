@@ -2,7 +2,6 @@ import Contact from "../components/terminal-components/Contact";
 import About from "../components/terminal-components/About";
 import Help from "../components/terminal-components/Help";
 import Skills from "../components/terminal-components/Skills";
-import Resume from "../components/terminal-components/Resume";
 
 interface handleInputProps {
   command: string;
@@ -79,7 +78,7 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <span className="text-green-400 text-sm font-mono">
+            <span className="text-terminal-valid">
               🗓️{" "}
               {new Date().toLocaleString("en-US", {
                 weekday: "short",
@@ -123,11 +122,24 @@ export const handleInput = ({
       ]);
       break;
     case "resume":
+      window.open(
+        "https://drive.google.com/file/d/1HGrpCTHpYWUwtfdyISdIqL46qiqW21zW/view?usp=sharing",
+        "__blank"
+      );
       setHistory((prev) => [
         ...prev,
         {
           command: command,
-          output: <Resume />,
+          output: "Opening resume...",
+        },
+      ]);
+      break;
+    case "vi":
+      setHistory((prev) => [
+        ...prev,
+        {
+          command: command,
+          output: "Using vi at this time and age? not cool! try vim maybe...",
         },
       ]);
       break;

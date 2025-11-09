@@ -5,7 +5,20 @@ import { motion } from "framer-motion";
 import { Monitor } from "lucide-react";
 
 const mockHistory = [{ command: "pwd", output: "/anas-portfolio" }];
-const validCommands = ["help", "ls", "pwd", "sudo rm -rf", "about", "whoami"];
+const validCommands = [
+  "help",
+  "ls",
+  "pwd",
+  "sudo rm -rf",
+  "about",
+  "whoami",
+  "vi",
+  "clear",
+  "date",
+  "skills",
+  "contact",
+  "resume",
+];
 
 const Terminal = () => {
   const [history, setHistory] = useState<
