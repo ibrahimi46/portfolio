@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Monitor } from "lucide-react";
 
 const mockHistory = [{ command: "pwd", output: "/anas-portfolio" }];
+const validCommands = ["help", "ls", "pwd", "sudo rm -rf", "about", "whoami"];
 
 const Terminal = () => {
   const [history, setHistory] = useState<
@@ -16,6 +17,7 @@ const Terminal = () => {
   const [bootComplete, setBootComplete] = useState(false);
   const [showAscii, setShowAscii] = useState(true);
   const [artIndex, setArtIndex] = useState(0);
+  const [isInputValid, setIsInputValid] = useState(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -164,10 +166,16 @@ const Terminal = () => {
             <input
               type="text"
               value={input}
-              className="bg-inherit outline-none caret-transparent cursor-default text-terminal-input"
+              className={`bg-inherit outline-none caret-transparent cursor-default text-terminal-input
+                ${
+                  isInputValid ? "text-terminal-valid" : "text-terminal-invalid"
+                }
+                `}
               ref={inputRef}
               onChange={(e) => {
-                setInput(e.target.value);
+                const value = e.target.value;
+                setInput(value);
+                setIsInputValid(validCommands.includes(value.trim()));
                 setIsTyping(true);
               }}
               onKeyDown={(e) => {
