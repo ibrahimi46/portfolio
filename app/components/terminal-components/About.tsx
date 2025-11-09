@@ -1,12 +1,16 @@
 const About = () => {
   return (
-    <div className="text-terminal-text">
-      👋 — I’m Anas Ibrahimi, a CS student & full-stack developer based in
-      Jeddah, 🇸🇦
+    <div className="text-terminal-valid">
+      👋 Hi — I’m Anas Ibrahimi, a CS student & full-stack developer in Jeddah
+      🇸🇦
       <br />
-      I build performant web apps with React, Next.js, and TypeScript.
+      I build modern, high-performance web apps with React, Next.js, and
+      TypeScript.
       <br />
-      Recent work: PinkMart Store, Gemini Clone, AI Maze Solver, usePopCorn.
+      Passionate about AI, real-time apps, and creating tools that solve real
+      problems.
+      <br />
+      Recent projects: PinkMart Store, Gemini Clone, AI Maze Solver, usePopCorn.
     </div>
   );
 };

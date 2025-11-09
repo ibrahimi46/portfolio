@@ -15,7 +15,17 @@ const Help = () => {
           <span className="text-terminal-input">contact</span> — email / GitHub
         </li>
         <li>
-          <span className="text-terminal-input">resume</span> — open CV (PDF)
+          <span className="text-terminal-input">resume</span> — open my CV (PDF)
+        </li>
+        <li>
+          <span className="text-terminal-input">repo</span> — open my github
+        </li>
+        <li>
+          <span className="text-terminal-input">linkedin</span> — open my
+          linkedin
+        </li>
+        <li>
+          <span className="text-terminal-input">hire me</span> — hire me 😁
         </li>
         <li>
           <span className="text-terminal-input">clear</span> — flush terminal
@@ -25,7 +35,10 @@ const Help = () => {
         </li>
         <li>
           <span className="text-terminal-input">whoami</span> — fun identity
-          hint 😄
+          hint
+        </li>
+        <li>
+          <span className="text-terminal-input">vi</span> — vi text editor
         </li>
       </ul>
     </div>

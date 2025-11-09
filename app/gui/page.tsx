@@ -1,7 +1,161 @@
-import React from "react";
+"use client";
+import { motion } from "framer-motion";
+import { ArrowRight, MousePointer } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import { SkillCard } from "@/components/ui/SkillCard";
+import Navbar from "../components/Navbar";
+import { SiteFooter } from "@/components/ui/SiteFooter";
+
+const skills = [
+  {
+    title: "Frontend Development",
+    desc: "React, Next.js, TypeScript, Tailwind CSS",
+  },
+  {
+    title: "Backend Development",
+    desc: "Node.js, Express, MongoDB, PostgreSQL",
+  },
+  {
+    title: "Machine Learning",
+    desc: "Scikit Learn, Seaborn, Pandas, Numpy, Matplotlib",
+  },
+];
 
 const Gui = () => {
-  return <div>Gui</div>;
+  return (
+    <div className="relative min-h-screen text-white bg-black font-sans">
+      <Navbar />
+      <main>
+        {/** Herro part */}
+        <section className="min-h-[calc(100vh-135px)] flex flex-col justify-center relative z-10 px-6 md:px-12">
+          <motion.div className="max-w-4xl mx-auto">
+            <motion.div className="space-y-4">
+              <motion.p
+                className="text-xl md:text-2xl font-medium text-white/80"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                data-cursor-text
+              >
+                Hi, I am
+              </motion.p>
+              <motion.h1
+                className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/60"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                data-cursor-text
+              >
+                Anas Ibrahimi
+              </motion.h1>
+
+              <div className="h-2 md:h-4"></div>
+
+              <motion.div
+                className="inline-block relative"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-20 bg-purple-500"></span>
+                <h2
+                  className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-purple-300 pl-2 mb-8 uppercase"
+                  data-cursor-text
+                >
+                  Full Stack Developer
+                  <br />& AI Enthusiast
+                </h2>
+              </motion.div>
+            </motion.div>
+
+            <motion.p
+              className="text-xl md:text-2xl text-white/70 max-w-2xl mb-8 mt-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              data-cursor-text
+            >
+              I specialise in full-stack development and passionate about AI and
+              Machine Learning
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="rounded-full border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300"
+                data-cursor-text
+              >
+                <Link href="/projects">
+                  View Projects <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.2 }}
+          >
+            <MousePointer className="h-6 w-6 animate-bounce" />
+            <span className="text-sm text-white/50 mt-2">
+              Scroll to explore
+            </span>
+          </motion.div>
+        </section>
+
+        {/** Featured section */}
+        <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 bg-gradient-to-b from-black to-purple-500">
+          <div className="max-w-4xl mx-auto">
+            <motion.h2
+              className="text-3xl md:text-5xl font-bold mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              data-cursor-text
+            >
+              Featured Skills
+            </motion.h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {skills.map((skill, index) => (
+                <SkillCard
+                  key={index}
+                  title={skill.title}
+                  description={skill.desc}
+                  index={index}
+                />
+              ))}
+            </div>
+
+            <motion.div
+              className="flex justify-center items-center border border-black/20 py-1 rounded-full mt-12 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <Link href="/resume" className="flex items-center gap-2">
+                View Full Resume <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+
+        {/** Footer */}
+        <SiteFooter />
+      </main>
+    </div>
+  );
 };
 
 export default Gui;

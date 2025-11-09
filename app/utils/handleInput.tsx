@@ -121,6 +121,26 @@ export const handleInput = ({
         },
       ]);
       break;
+    case "repo":
+      window.open("https://github.com/ibrahimi46", "__blank");
+      setHistory((prev) => [
+        ...prev,
+        {
+          command: command,
+          output: "Opening Github...",
+        },
+      ]);
+      break;
+    case "linkedin":
+      window.open("https://www.linkedin.com/in/a-ibrahimi/", "__blank");
+      setHistory((prev) => [
+        ...prev,
+        {
+          command: command,
+          output: "Opening Github...",
+        },
+      ]);
+      break;
     case "resume":
       window.open(
         "https://drive.google.com/file/d/1HGrpCTHpYWUwtfdyISdIqL46qiqW21zW/view?usp=sharing",
@@ -139,7 +159,42 @@ export const handleInput = ({
         ...prev,
         {
           command: command,
-          output: "Using vi at this time and age? not cool! try vim maybe...",
+          output: (
+            <span className="text-terminal-valid">{`using vi at this time and age? not cool! try 'vim' maybe...`}</span>
+          ),
+        },
+      ]);
+      break;
+    case "vim":
+      setHistory((prev) => [
+        ...prev,
+        {
+          command: command,
+          output: (
+            <span className="text-terminal-valid">{`vim is so outdated. how about use 'nano'?`}</span>
+          ),
+        },
+      ]);
+      break;
+    case "nano":
+      setHistory((prev) => [
+        ...prev,
+        {
+          command: command,
+          output: (
+            <span className="text-terminal-valid">{`just use vscode at this point (:`}</span>
+          ),
+        },
+      ]);
+      break;
+    case "hireme":
+      setHistory((prev) => [
+        ...prev,
+        {
+          command: command,
+          output: (
+            <span className="text-terminal-valid">{`just use vscode at this point (:`}</span>
+          ),
         },
       ]);
       break;
