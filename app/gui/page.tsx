@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, MousePointer } from "lucide-react";
+import { ArrowRight, ArrowDownCircle } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+
 import { SkillCard } from "@/components/ui/SkillCard";
 import Navbar from "../components/Navbar";
 import { SiteFooter } from "@/components/ui/SiteFooter";
@@ -80,35 +80,25 @@ const Gui = () => {
               Machine Learning
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="rounded-full border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300"
-                data-cursor-text
+            <Link href={""}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="border border-white/20 w-fit rounded-full flex items-center px-6 py-2 text-white hover:bg-white hover:text-black transition-all duration-300"
               >
-                <Link href="/projects">
-                  View Projects <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </motion.div>
+                View Projects <ArrowRight className="ml-2 h-4 w-4" />
+              </motion.div>
+            </Link>
           </motion.div>
 
           <motion.div
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+            className="absolute bottom-0  left-1/2 transform -translate-x-1/2 flex flex-col items-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
           >
-            <MousePointer className="h-6 w-6 animate-bounce" />
-            <span className="text-sm text-white/50 mt-2">
-              Scroll to explore
-            </span>
+            <ArrowDownCircle className="h-6 w-6 animate-bounce cursor-pointer hover:opacity-80" />
           </motion.div>
         </section>
 
