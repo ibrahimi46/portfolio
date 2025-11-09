@@ -25,7 +25,7 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <span className="text-green-400 text-sm font-mono">
+            <span className="text-terminal-valid">
               bin/ &nbsp; projects/ &nbsp; hpc/ &nbsp; docs/
             </span>
           ),
@@ -40,7 +40,11 @@ export const handleInput = ({
         ...prev,
         {
           command: command,
-          output: "You’re a curious visitor exploring my portfolio 👀",
+          output: (
+            <div className="text-terminal-valid">
+              You’re a curious visitor exploring my portfolio 👀
+            </div>
+          ),
         },
       ]);
       break;
@@ -50,9 +54,9 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <span className="text-red-400 text-sm font-mono animate-pulse">
+            <span className="text-terminal-invalid animate-pulse">
               💥 Permission denied. System protected by{" "}
-              <span className="text-cyan-300">AnasOS Firewall v2.1</span>.
+              <span>AnasOS Firewall v2.1</span>.
               <br />
               (Nice try, pentester 🕵️‍♂️)
             </span>
@@ -130,7 +134,12 @@ export const handleInput = ({
     default:
       setHistory((prev) => [
         ...prev,
-        { command: command, output: "type help to see available options..." },
+        {
+          command: command,
+          output: (
+            <div className="text-terminal-invalid">{`shell: command not found. Try 'help' to get started.`}</div>
+          ),
+        },
       ]);
   }
   setInput("");

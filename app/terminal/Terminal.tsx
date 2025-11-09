@@ -14,6 +14,8 @@ const Terminal = () => {
   const [isTyping, setIsTyping] = useState<boolean>(false);
   const [input, setInput] = useState<string>("");
   const [bootComplete, setBootComplete] = useState(false);
+  const [showAscii, setShowAscii] = useState(true);
+  const [artIndex, setArtIndex] = useState(0);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -26,6 +28,18 @@ const Terminal = () => {
     "✅ System ready.",
     "💡 Type 'help' to see available commands.",
   ];
+
+  const asciiArt = `
+   ________  ________   ________  ________           ___  ________  ________  ________  ___  ___  ___  _____ ______   ___     
+│╲   __  ╲│╲   ___  ╲│╲   __  ╲│╲   ____╲         │╲  ╲│╲   __  ╲│╲   __  ╲│╲   __  ╲│╲  ╲│╲  ╲│╲  ╲│╲   _ ╲  _   ╲│╲  ╲    
+╲ ╲  ╲│╲  ╲ ╲  ╲╲ ╲  ╲ ╲  ╲│╲  ╲ ╲  ╲___│_        ╲ ╲  ╲ ╲  ╲│╲ ╱╲ ╲  ╲│╲  ╲ ╲  ╲│╲  ╲ ╲  ╲╲╲  ╲ ╲  ╲ ╲  ╲╲╲__╲ ╲  ╲ ╲  ╲   
+ ╲ ╲   __  ╲ ╲  ╲╲ ╲  ╲ ╲   __  ╲ ╲_____  ╲        ╲ ╲  ╲ ╲   __  ╲ ╲   _  _╲ ╲   __  ╲ ╲   __  ╲ ╲  ╲ ╲  ╲╲│__│ ╲  ╲ ╲  ╲  
+  ╲ ╲  ╲ ╲  ╲ ╲  ╲╲ ╲  ╲ ╲  ╲ ╲  ╲│____│╲  ╲        ╲ ╲  ╲ ╲  ╲│╲  ╲ ╲  ╲╲  ╲╲ ╲  ╲ ╲  ╲ ╲  ╲ ╲  ╲ ╲  ╲ ╲  ╲    ╲ ╲  ╲ ╲  ╲ 
+   ╲ ╲__╲ ╲__╲ ╲__╲╲ ╲__╲ ╲__╲ ╲__╲____╲_╲  ╲        ╲ ╲__╲ ╲_______╲ ╲__╲╲ _╲╲ ╲__╲ ╲__╲ ╲__╲ ╲__╲ ╲__╲ ╲__╲    ╲ ╲__╲ ╲__╲
+    ╲│__│╲│__│╲│__│ ╲│__│╲│__│╲│__│╲_________╲        ╲│__│╲│_______│╲│__│╲│__│╲│__│╲│__│╲│__│╲│__│╲│__│╲│__│     ╲│__│╲│__│
+                                  ╲│_________│                                                                              
+                                                                                                                            
+                                                                                                                            `;
 
   useEffect(() => {
     bootMessages.forEach((msg, idx) => {
@@ -53,6 +67,18 @@ const Terminal = () => {
   }, []);
 
   useEffect(() => {
+    if (!bootComplete) return;
+
+    if (artIndex < asciiArt.length) {
+      const interval = setTimeout(() => {
+        setArtIndex((prev) => prev + 1);
+      }, 2);
+
+      return () => clearTimeout(interval);
+    }
+  }, [artIndex, bootComplete, asciiArt.length]);
+
+  useEffect(() => {
     scrollRef.current?.scrollTo({
       top: scrollRef.current.scrollHeight,
       behavior: "smooth",
@@ -64,7 +90,7 @@ const Terminal = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-      className="bg-terminal-bg text-terminal-text p-4
+      className="bg-terminal-bg text-terminal-text p-7
       h-full w-full relative
       border-[1px] border-light/20 rounded-md
       text-sm sm:text-lg overflow-auto scrollbar-hide
@@ -83,30 +109,49 @@ const Terminal = () => {
       {bootHistory.length > 0 &&
         bootHistory.map((bootMsg, idx) => {
           return (
-            <p key={idx} className="text-green-700">
+            <p key={idx} className="text-terminal-valid text-sm">
               {bootMsg}
             </p>
           );
         })}
 
+      {bootComplete && (
+        <div className="font-mono text-[4px] mt-4 sm:text-[8px] md:text-[10px] lg:text-[14px]  whitespace-pre leading-[1.1]">
+          {asciiArt.slice(0, artIndex)}
+        </div>
+      )}
+
       {history.length > 0 &&
         history.map((history, idx) => {
           return (
-            <div key={idx}>
-              <div className="flex gap-2">
-                <span className="text-blue-400 cursor-default">
-                  @anas-portfolio-$
-                </span>
-                <p>{history.command}</p>
+            <div key={idx} className="mt-4">
+              <div>
+                <span className="text-terminal-prompt">┌──(</span>
+                <span className="text-terminal-accent">anas</span>
+                <span className="text-terminal-prompt">㉿</span>
+                <span className="text-terminal-accent">ibrahimi</span>
+                <span className="text-terminal-prompt">)-[</span>
+                <span className="text-terminal-prompt">~</span>
+                <span className="text-terminal-prompt">]</span>
               </div>
-              <div>{history.output}</div>
+              <span className="text-terminal-prompt">
+                └─$&nbsp;&nbsp;&nbsp;{history.output}
+              </span>
             </div>
           );
         })}
 
       {bootComplete && (
-        <div className="flex gap-2">
-          <div className="cursor-default text-blue-400">@anas-portfolio-$</div>
+        <div className="flex gap-2 mt-4">
+          <div>
+            <span className="text-terminal-prompt">┌──(</span>
+            <span className="text-terminal-accent">anas</span>
+            <span className="text-terminal-prompt">㉿</span>
+            <span className="text-terminal-accent">ibrahimi</span>
+            <span className="text-terminal-prompt">)-[</span>
+            <span className="text-terminal-prompt">~</span>
+            <span className="text-terminal-prompt">]</span>
+          </div>
           {/** Input box */}
           <div>
             <span
@@ -114,12 +159,12 @@ const Terminal = () => {
                 input.length > 0 ? "hidden" : "animate-pulse"
               } cursor-default`}
             >
-              █
+              |
             </span>
             <input
               type="text"
               value={input}
-              className="bg-inherit outline-none caret-transparent cursor-default"
+              className="bg-inherit outline-none caret-transparent cursor-default text-terminal-input"
               ref={inputRef}
               onChange={(e) => {
                 setInput(e.target.value);
@@ -130,6 +175,7 @@ const Terminal = () => {
                   e.preventDefault();
                   if (bootHistory.length > 0) setBootHistory([]);
                   if (input.length > 0) audioRef.current?.play();
+                  setShowAscii(false);
                   handleInput({ command: input, setHistory, setInput });
                   setIsTyping(false);
                 }
