@@ -49,6 +49,20 @@ export const handleInput = ({
         },
       ]);
       break;
+    case "hire me":
+      setHistory((prev) => [
+        ...prev,
+        {
+          command: command,
+          output: (
+            <div className="text-terminal-text">sending email to Anas...</div>
+          ),
+        },
+      ]);
+      break;
+    case "exit":
+      window.location.href = "/";
+      break;
     case "sudo rm -rf":
       setHistory((prev) => [
         ...prev,

@@ -40,7 +40,7 @@ export default function LoadingModal({ onComplete }: LoadingModalProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
           <div className="relative p-6 flex flex-col">
-            <h3 className="text-xl font-semibold text-terminal-text mb-6 text-center">
+            <h3 className="text-lg font-semibold text-terminal-text mb-6 text-center">
               Initializing Terminal<span className="animate-pulse">...</span>
             </h3>
 

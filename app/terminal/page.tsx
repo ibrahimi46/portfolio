@@ -24,6 +24,8 @@ const validCommands = [
   "hire me",
   "ls projects",
   "cat resume",
+  "exit",
+  "repo",
 ];
 
 const Terminal = () => {

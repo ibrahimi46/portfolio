@@ -9,7 +9,7 @@ export function SiteFooter() {
 
       <div className="flex gap-4">
         <a
-          href="https://github.com"
+          href="https://github.com/ibrahimi46"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white/50 hover:text-white transition-colors"
@@ -18,7 +18,7 @@ export function SiteFooter() {
           <FaGithub className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
         </a>
         <a
-          href="https://linkedin.com"
+          href="https://linkedin.com/in/a-ibrahimi"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white/50 hover:text-white transition-colors"
@@ -27,7 +27,7 @@ export function SiteFooter() {
           <FaLinkedin className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
         </a>
         <a
-          href="mailto:hello@example.com"
+          href="mailto:anasibrahimi4664@gmail.com"
           className="text-white/50 hover:text-white transition-colors"
           data-cursor-text
         >
