@@ -8,6 +8,7 @@ module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{html,js,jsx,ts,tsx,vue}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./public/**/*.html",
     "./*.html",
   ],

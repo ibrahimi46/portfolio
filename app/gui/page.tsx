@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowDownCircle } from "lucide-react";
 import Link from "next/link";
 
-import { SkillCard } from "@/components/ui/SkillCard";
 import Navbar from "../components/Navbar";
+import SkillCard from "@/components/ui/SkillCard";
 import { SiteFooter } from "@/components/ui/SiteFooter";
 
 const skills = [
@@ -86,7 +86,7 @@ const Gui = () => {
             >
               <Link
                 href={""}
-                className="border border-white/20 w-fit rounded-full flex items-center px-6 py-2 text-white hover:bg-white hover:text-black transition-all duration-300"
+                className="border border-white/20 w-fit rounded-full flex items-center px-6 py-2 text-white bg-black font-semibold text-sm hover:bg-white hover:text-black transition-all duration-300"
               >
                 View Projects <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -104,7 +104,7 @@ const Gui = () => {
         </section>
 
         {/** Featured section */}
-        <section className="min-h-[calc(100vh-12px)] flex flex-col justify-center px-6 md:px-12 bg-gradient-to-b from-black to-purple-500">
+        <section className="min-h-[calc(100vh-12px)] bg-gray-600 flex flex-col justify-center px-6 md:px-12 bg-gradient-to-b from-black to-purple-500">
           <div className="max-w-4xl mx-auto">
             <motion.h2
               className="text-3xl md:text-5xl font-bold mb-12"
@@ -123,19 +123,21 @@ const Gui = () => {
                   key={index}
                   title={skill.title}
                   description={skill.desc}
-                  index={index}
                 />
               ))}
             </div>
 
             <motion.div
-              className="flex justify-center items-center border border-black/20 py-1 rounded-full mt-12 text-center"
+              className="flex justify-center items-center mt-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <Link href="/resume" className="flex items-center gap-2">
+              <Link
+                href="/resume"
+                className="border border-white/20 w-fit rounded-full flex items-center px-6 py-2 text-white bg-black font-semibold text-sm hover:bg-white hover:text-black transition-all duration-300"
+              >
                 View Full Resume <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </motion.div>
