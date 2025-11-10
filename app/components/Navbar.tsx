@@ -10,7 +10,10 @@ const Navbar = () => {
         Anas
       </div>
       <div className="flex gap-4">
-        <Link href="/" className="hover:opacity-80 transition-all duration-300">
+        <Link
+          href="/projects"
+          className="hover:opacity-80 transition-all duration-300"
+        >
           Projects
         </Link>
         <Link
