@@ -110,6 +110,7 @@ const Gui = () => {
                   key={index}
                   title={skill.title}
                   description={skill.desc}
+                  index={index}
                 />
               ))}
             </div>
