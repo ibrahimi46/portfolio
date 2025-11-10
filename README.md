@@ -40,6 +40,7 @@ A modern portfolio website featuring both GUI and Terminal interfaces, built wit
 
 ## 📁 Project Structure
 
+```bash
 my-portfolio/
 ├── app/
 │   ├── (gui)/                    # GUI route group
@@ -90,6 +91,7 @@ my-portfolio/
 │   └── favicon.svg
 │
 └── [config files]
+```
 
 ## 🚀 Getting Started
 
@@ -108,6 +110,7 @@ cd my-portfolio
 
 # 2. Install dependencies
 npm install  # or yarn / pnpm install
+```
 
 
 ## 🎯 Features Overview
