@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowDownCircle } from "lucide-react";
 import Link from "next/link";
 
-import Navbar from "../../components/Navbar";
+import Navbar from "@/components/layout/Navbar";
 import SkillCard from "@/components/ui/SkillCard";
-import { SiteFooter } from "@/components/ui/SiteFooter";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { featuredSkills } from "@/lib/data/resume";
 
 const Gui = () => {

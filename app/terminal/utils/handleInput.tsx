@@ -1,9 +1,9 @@
-import Contact from "../components/terminal-components/Contact";
-import About from "../components/terminal-components/About";
-import Help from "../components/terminal-components/Help";
-import Skills from "../components/terminal-components/Skills";
+import Contact from "../components/Contact";
+import About from "../components/About";
+import Help from "../components/Help";
+import Skills from "../components/Skills";
 import { projects } from "@/lib/data/Projects";
-import { ProjectCard } from "../(gui)/projects/components/ProjectCard";
+import { ProjectCard } from "../../(gui)/projects/components/ProjectCard";
 
 interface handleInputProps {
   command: string;

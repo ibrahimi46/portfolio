@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { handleInput } from "../utils/handleInput";
+import { handleInput } from "./utils/handleInput";
 import { Monitor } from "lucide-react";
 import Link from "next/link";
-import LoadingModal from "../components/terminal-components/LoadingModal";
+import LoadingModal from "./components/LoadingModal";
 
 const validCommands = [
   "help",
