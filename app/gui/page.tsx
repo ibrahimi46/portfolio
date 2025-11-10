@@ -76,8 +76,7 @@ const Gui = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               data-cursor-text
             >
-              I specialise in full-stack development and passionate about AI and
-              Machine Learning
+              I specialise in full-stack development and passionate about AI
             </motion.p>
 
             <motion.div
@@ -105,7 +104,7 @@ const Gui = () => {
         </section>
 
         {/** Featured section */}
-        <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 bg-gradient-to-b from-black to-purple-500">
+        <section className="min-h-[calc(100vh-12px)] flex flex-col justify-center px-6 md:px-12 bg-gradient-to-b from-black to-purple-500">
           <div className="max-w-4xl mx-auto">
             <motion.h2
               className="text-3xl md:text-5xl font-bold mb-12"
@@ -144,7 +143,12 @@ const Gui = () => {
         </section>
 
         {/** Footer */}
-        <SiteFooter />
+        <div
+          className="h-12 px-24 absolute w-full bottom-0 border-t
+         border-white/10 backdrop-blur-sm z-30"
+        >
+          <SiteFooter />
+        </div>
       </main>
     </div>
   );

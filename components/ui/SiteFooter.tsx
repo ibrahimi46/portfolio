@@ -2,12 +2,12 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export function SiteFooter() {
   return (
-    <footer className="flex justify-between items-center py-6 px-6 md:px-12 border-t border-white/10 backdrop-blur-sm">
-      <p className="text-white/50 mb-4 md:mb-0">
+    <footer className="flex justify-between items-center w-full h-full">
+      <p className="text-white/50 mb-4 md:mb-0 font-roboto font-semibold">
         © {new Date().getFullYear()} Anas Ibrahimi. All rights reserved.
       </p>
 
-      <div className="flex space-x-6">
+      <div className="flex gap-4">
         <a
           href="https://github.com"
           target="_blank"
