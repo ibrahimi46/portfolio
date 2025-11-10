@@ -39,7 +39,7 @@ export function ResumeHeader() {
           <div className="flex items-center">
             <span className="text-white/50 mr-2">LinkedIn:</span>
             <a
-              href="https://linkedin.com/inadsf"
+              href="https://linkedin.com/in/a-ibrahimi"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white/90 transition-colors inline-flex items-center"

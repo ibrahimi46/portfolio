@@ -23,7 +23,7 @@ const ProjectsPage = () => {
 
         <h1 className="text-4xl font-bold mb-4">Projects</h1>
         <p className="text-white/70 max-w-2xl mb-12">
-          A selection of my recent work — from full-stack apps to HPC tooling.
+          A selection of my recent work...
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

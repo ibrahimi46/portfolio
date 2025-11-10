@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, JetBrains_Mono, Roboto } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const manrope = Manrope({
   variable: "--font-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
         className={`${manrope.variable} ${jetBrainsMono.variable} ${roboto.variable} antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
