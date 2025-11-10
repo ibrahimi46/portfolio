@@ -24,7 +24,7 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <span className="text-terminal-valid">
+            <span className="text-terminal-text">
               bin/ &nbsp; projects/ &nbsp; hpc/ &nbsp; docs/
             </span>
           ),
@@ -40,7 +40,7 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <div className="text-terminal-valid">
+            <div className="text-terminal-text">
               You’re a curious visitor exploring my portfolio 👀
             </div>
           ),
@@ -78,7 +78,7 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <span className="text-terminal-valid">
+            <span className="text-terminal-text">
               🗓️{" "}
               {new Date().toLocaleString("en-US", {
                 weekday: "short",
@@ -160,7 +160,7 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <span className="text-terminal-valid">{`using vi at this time and age? not cool! try 'vim' maybe...`}</span>
+            <span className="text-terminal-text">{`using vi at this time and age? not cool! try 'vim' maybe...`}</span>
           ),
         },
       ]);
@@ -171,7 +171,7 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <span className="text-terminal-valid">{`vim is so outdated. how about use 'nano'?`}</span>
+            <span className="text-terminal-text">{`vim is so outdated. how about use 'nano'?`}</span>
           ),
         },
       ]);
@@ -182,18 +182,18 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <span className="text-terminal-valid">{`just use vscode at this point (:`}</span>
+            <span className="text-terminal-text">{`just use vscode at this point (:`}</span>
           ),
         },
       ]);
       break;
-    case "hireme":
+    case "hire me":
       setHistory((prev) => [
         ...prev,
         {
           command: command,
           output: (
-            <span className="text-terminal-valid">{`just use vscode at this point (:`}</span>
+            <span className="text-terminal-text">{`sending email...`}</span>
           ),
         },
       ]);

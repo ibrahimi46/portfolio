@@ -1,6 +1,6 @@
 const Help = () => {
   return (
-    <div className="text-terminal-valid">
+    <div className="text-terminal-text">
       <p className="mb-2">available commands:</p>
       <ul className="ml-4 space-y-1.5">
         <li>

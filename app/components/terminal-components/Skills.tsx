@@ -1,6 +1,6 @@
 const Skills = () => {
   return (
-    <div className="text-terminal-valid">
+    <div className="text-terminal-text">
       <p className="mb-2">🛠️ Tech stack & tooling:</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5">
         <div>

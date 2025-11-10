@@ -19,11 +19,11 @@ export function ProjectCard({
       onMouseLeave={onLeave}
       className="group"
     >
-      <div className="relative h-full overflow-hidden bg-zinc-900 rounded-lg border border-zinc-800 hover:border-zinc-700 transition-all duration-300">
+      <div className="relative h-full overflow-hidden bg-zinc-900 rounded-lg border border-zinc-800 hover:border-zinc-700 transition-all duration-300 flex flex-col">
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-        <div className="relative p-6">
-          <div className="absolute top-4 right-4">
+        <div className="relative p-6 flex flex-col flex-grow">
+          <div className="absolute top-6 right-4">
             {project.featured && (
               <span className="inline-block px-2.5 py-0.5 text-xs font-medium bg-blue-500/10 text-blue-400 rounded border border-blue-500/20">
                 Featured
@@ -31,11 +31,11 @@ export function ProjectCard({
             )}
           </div>
 
-          <h3 className="text-xl font-semibold text-white mb-2">
+          <h3 className="text-xl font-semibold text-white mb-4">
             {project.title}
           </h3>
 
-          <p className="text-zinc-400 text-sm mb-4 leading-relaxed">
+          <p className="text-zinc-400 text-sm mb-4 leading-relaxed h-20 line-clamp-4">
             {project.description}
           </p>
 
@@ -55,7 +55,7 @@ export function ProjectCard({
             )}
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 mt-auto">
             {project.github && (
               <a
                 href={project.github}
