@@ -31,6 +31,6 @@ export const projects: Project[] = [
       "Bash automation toolkit for deploying SLURM clusters with NFS, Munge, and node provisioning.",
     tags: ["Bash", "Linux", "HPC", "SLURM", "NFS", "Munge"],
     github: "https://github.com/ibrahimi46/slurm-toolkit",
-    featured: true,
+    
   },
 ];

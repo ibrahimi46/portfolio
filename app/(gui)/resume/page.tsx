@@ -35,7 +35,7 @@ export default function ResumePage() {
             href="https://drive.google.com/file/d/1a5rjo-lyvIbHb0fZGzXoIEJoCSPR6iNS/view?usp=share_link"
             target="__blank"
             download
-            className="mt-6 md:mt-0 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-white/90 transition-all flex items-center"
+            className="flex items-center mt-6 md:mt-0 px-6 py-3 bg-blue-500/20 text-blue-400 rounded border border-blue-500/20 transition-all duration-300 hover:opacity-80 hover:border-blue-500/40"
           >
             <Download className="mr-2 h-4 w-4" />
             Download PDF
