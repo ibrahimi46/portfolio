@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  font-family: var(--font-mono);
+  font-family: var(--font-roboto);
   overscroll-behavior: none;
   padding: 0;
   margin: 0;

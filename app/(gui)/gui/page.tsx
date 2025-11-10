@@ -70,13 +70,14 @@ const Gui = () => {
             </motion.div>
 
             <motion.p
-              className="text-xl md:text-2xl text-white/70 max-w-2xl mb-8 mt-4"
+              className="text-lg md:text-xl text-white/70 max-w-2xl mb-8 mt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               data-cursor-text
             >
-              I specialise in full-stack development and passionate about AI
+              I specialise in full-stack development and i am passionate about
+              AI
             </motion.p>
 
             <motion.div

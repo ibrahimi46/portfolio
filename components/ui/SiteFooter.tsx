@@ -2,11 +2,8 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export function SiteFooter() {
   return (
-    <footer
-      className="flex items-center justify-between  text-nowrap h-12 px-4 sm:px-12 absolute w-full bottom-0 border-t
-         border-white/10 backdrop-blur-sm z-30"
-    >
-      <p className="text-white/50 font-roboto text-[10px] md:text-[12px] font-semibold">
+    <footer className="flex items-center justify-between bg-black text-nowrap h-12 px-4 sm:px-12 absolute w-full bottom-0">
+      <p className="text-white/50 font-roboto text-[10px] md:text-[12px] font-semibold cursor-pointer">
         © {new Date().getFullYear()} Anas Ibrahimi. All rights reserved.
       </p>
 

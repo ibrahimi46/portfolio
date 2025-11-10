@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import { projects } from "@/lib/data/Projects";
+import { projects } from "@/lib/data/projects";
 import { ProjectCard } from "./components/ProjectCard";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";

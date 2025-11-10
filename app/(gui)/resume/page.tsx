@@ -6,60 +6,13 @@ import { ResumeHeader } from "./components/ResumeHeader";
 import { TimelineItem } from "./components/TimelineItem";
 import { SkillsSection } from "./components/SkillsSection";
 import { TabButton } from "./components/TabButton";
-
-// Import your data
-const educationData = [
-  {
-    degree: "Bachelor of Science in Computer Science",
-    institution: "King AbdulAziz University",
-    period: "2022 - 2027",
-    description: "Focused on software engineering and AI",
-    courses: [
-      "Data Structures",
-      "Algorithms",
-      "Machine Learning",
-      "Web Development",
-    ],
-  },
-];
-
-const experienceData = [
-  {
-    title: "Jr Web Developer",
-    company: "Consulate General of Afghanistan - Jeddah, KSA",
-    period: "Jan 2025 - Mar 2025",
-    description: "Building modern web applications",
-    achievements: [
-      "Built responsive UIs",
-      "Optimized performance",
-      "Collaborated with team",
-    ],
-  },
-];
-
-const technicalSkills = [
-  { name: "React/Next.js", level: 90 },
-  { name: "TypeScript", level: 85 },
-  { name: "Node.js", level: 80 },
-  { name: "Python", level: 75 },
-];
-
-const softSkills = [
-  "Problem Solving",
-  "Team Collaboration",
-  "Communication",
-  "Time Management",
-];
-
-const languages = [
-  { name: "Persian", proficiency: "Native", level: 100 },
-  { name: "English", proficiency: "Fluent", level: 95 },
-
-  { name: "Arabic", proficiency: "Intermediate", level: 80 },
-  { name: "Turkish", proficiency: "Fluent", level: 90 },
-  { name: "Urdu", proficiency: "Fluent", level: 90 },
-  { name: "Uzbeki", proficiency: "Native", level: 100 },
-];
+import {
+  languages,
+  experienceData,
+  softSkills,
+  educationData,
+  technicalSkills,
+} from "@/lib/data/resume";
 
 export default function ResumePage() {
   const [activeTab, setActiveTab] = useState("education");
