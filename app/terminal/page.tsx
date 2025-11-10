@@ -101,7 +101,7 @@ const Terminal = () => {
       {isLoading && <LoadingModal onComplete={() => setIsLoading(false)} />}
       {/** GUI switch */}
       <Link
-        href={"/gui"}
+        href={"/"}
         className="flex items-center gap-2 px-6 py-2 fixed top-5 right-5  border border-white/20 w-fit rounded-full text-white bg-black font-semibold text-sm hover:bg-white hover:text-black transition-all duration-300"
       >
         <Monitor className="h-4 w-4" />
