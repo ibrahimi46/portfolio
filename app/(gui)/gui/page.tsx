@@ -129,7 +129,7 @@ const Gui = () => {
             </div>
 
             <motion.div
-              className="flex justify-center items-center mt-6"
+              className="flex justify-center items-center mt-4 md:mt-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}

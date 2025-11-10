@@ -1,7 +1,13 @@
 "use client";
 
-import { Terminal } from "lucide-react";
 import Link from "next/link";
+
+const tags = [
+  { tag: "Projects", route: "/projects" },
+  { tag: "Resume", route: "/resume" },
+  { tag: "Contact", route: "/contact" },
+  { tag: "Terminal", route: "/terminal" },
+];
 
 const Navbar = () => {
   return (
@@ -10,31 +16,19 @@ const Navbar = () => {
         Anas
       </div>
       <div className="flex gap-4">
-        <Link
-          href="/projects"
-          className="hover:opacity-80 transition-all duration-300"
-        >
-          Projects
-        </Link>
-        <Link
-          href="/resume"
-          className="hover:opacity-80 transition-all duration-300"
-        >
-          Resume
-        </Link>
-        <Link
-          href="/contact"
-          className="hover:opacity-80 transition-all duration-300"
-        >
-          Contact
-        </Link>
-        <Link
-          href="/terminal"
-          className="flex items-center gap-2 hover:opacity-80 transition-all duration-300"
-        >
-          <Terminal />
-          Terminal
-        </Link>
+        {tags &&
+          tags.map((tag, idx) => {
+            return (
+              <Link
+                key={idx}
+                href={tag.route}
+                className="relative group overflow-hidden"
+              >
+                {tag.tag}
+                <span className="bg-white h-[2px] w-0 absolute bottom-0 left-0 transition-all duration-300 group-hover:w-full ease-out"></span>
+              </Link>
+            );
+          })}
       </div>
     </div>
   );
