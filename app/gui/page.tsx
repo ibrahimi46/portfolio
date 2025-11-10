@@ -28,9 +28,9 @@ const Gui = () => {
       <Navbar />
       <main>
         {/** Herro part */}
-        <section className="min-h-[calc(100vh-135px)] flex flex-col justify-center relative z-10 px-6 md:px-12">
+        <section className="min-h-screen flex flex-col justify-center relative z-10 px-6 md:px-12">
           <motion.div className="max-w-4xl mx-auto">
-            <motion.div className="space-y-4">
+            <motion.div>
               <motion.p
                 className="text-xl md:text-2xl font-medium text-white/80"
                 initial={{ opacity: 0, y: 20 }}
@@ -80,20 +80,22 @@ const Gui = () => {
               Machine Learning
             </motion.p>
 
-            <Link href={""}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <Link
+                href={""}
                 className="border border-white/20 w-fit rounded-full flex items-center px-6 py-2 text-white hover:bg-white hover:text-black transition-all duration-300"
               >
                 View Projects <ArrowRight className="ml-2 h-4 w-4" />
-              </motion.div>
-            </Link>
+              </Link>
+            </motion.div>
           </motion.div>
 
           <motion.div
-            className="absolute bottom-0  left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}

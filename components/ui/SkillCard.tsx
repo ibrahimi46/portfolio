@@ -11,7 +11,7 @@ interface SkillCardProps {
 export function SkillCard({ title, description, index }: SkillCardProps) {
   return (
     <motion.div
-      className="p-6 rounded-xl border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300"
+      className="p-4 rounded-xl border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
