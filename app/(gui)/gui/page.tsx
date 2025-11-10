@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowDownCircle } from "lucide-react";
 import Link from "next/link";
 
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 import SkillCard from "@/components/ui/SkillCard";
 import { SiteFooter } from "@/components/ui/SiteFooter";
 
@@ -107,7 +107,7 @@ const Gui = () => {
         <section className="min-h-[calc(100vh-12px)] bg-gray-600 flex flex-col justify-center px-6 md:px-12 bg-gradient-to-b from-black to-purple-500">
           <div className="max-w-4xl mx-auto">
             <motion.h2
-              className="text-3xl md:text-5xl font-bold mb-12"
+              className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 md:gap-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -117,7 +117,7 @@ const Gui = () => {
               Featured Skills
             </motion.h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
               {skills.map((skill, index) => (
                 <SkillCard
                   key={index}
@@ -128,7 +128,7 @@ const Gui = () => {
             </div>
 
             <motion.div
-              className="flex justify-center items-center mt-12"
+              className="flex justify-center items-center mt-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -145,12 +145,8 @@ const Gui = () => {
         </section>
 
         {/** Footer */}
-        <div
-          className="h-12 px-24 absolute w-full bottom-0 border-t
-         border-white/10 backdrop-blur-sm z-30"
-        >
-          <SiteFooter />
-        </div>
+
+        <SiteFooter />
       </main>
     </div>
   );

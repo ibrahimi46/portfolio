@@ -1,4 +1,4 @@
-import Gui from "./gui/page";
+import Gui from "./(gui)/gui/page";
 
 export default function Home() {
   return (

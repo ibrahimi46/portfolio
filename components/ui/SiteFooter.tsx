@@ -2,8 +2,11 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export function SiteFooter() {
   return (
-    <footer className="flex justify-between items-center w-full h-full">
-      <p className="text-white/50 mb-4 md:mb-0 font-roboto font-semibold">
+    <footer
+      className="flex items-center justify-between  text-nowrap h-12 px-4 sm:px-12 absolute w-full bottom-0 border-t
+         border-white/10 backdrop-blur-sm z-30"
+    >
+      <p className="text-white/50 font-roboto text-[10px] md:text-[12px] font-semibold">
         © {new Date().getFullYear()} Anas Ibrahimi. All rights reserved.
       </p>
 
@@ -15,7 +18,7 @@ export function SiteFooter() {
           className="text-white/50 hover:text-white transition-colors"
           data-cursor-text
         >
-          <FaGithub className="h-5 w-5" />
+          <FaGithub className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
         </a>
         <a
           href="https://linkedin.com"
@@ -24,14 +27,14 @@ export function SiteFooter() {
           className="text-white/50 hover:text-white transition-colors"
           data-cursor-text
         >
-          <FaLinkedin className="h-5 w-5" />
+          <FaLinkedin className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
         </a>
         <a
           href="mailto:hello@example.com"
           className="text-white/50 hover:text-white transition-colors"
           data-cursor-text
         >
-          <FaEnvelope className="h-5 w-5" />
+          <FaEnvelope className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
         </a>
       </div>
     </footer>
