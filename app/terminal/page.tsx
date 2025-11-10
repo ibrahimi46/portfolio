@@ -22,6 +22,8 @@ const validCommands = [
   "vim",
   "nano",
   "hire me",
+  "ls projects",
+  "cat resume",
 ];
 
 const Terminal = () => {

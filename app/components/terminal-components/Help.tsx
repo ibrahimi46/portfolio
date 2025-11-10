@@ -18,6 +18,14 @@ const Help = () => {
           <span className="text-terminal-input">resume</span> — open my CV (PDF)
         </li>
         <li>
+          <span className="text-terminal-input">cat resume</span> — open my CV
+          preview
+        </li>
+        <li>
+          <span className="text-terminal-input">ls projects</span> — quick
+          preview of my recent projects
+        </li>
+        <li>
           <span className="text-terminal-input">repo</span> — open my github
         </li>
         <li>

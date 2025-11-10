@@ -41,7 +41,7 @@ export default function LoadingModal({ onComplete }: LoadingModalProps) {
 
           <div className="relative p-6 flex flex-col">
             <h3 className="text-xl font-semibold text-terminal-text mb-6 text-center">
-              Loading<span className="animate-pulse">...</span>
+              Initializing Terminal<span className="animate-pulse">...</span>
             </h3>
 
             <div className="relative h-2 bg-zinc-800 rounded-full overflow-hidden border border-zinc-700">

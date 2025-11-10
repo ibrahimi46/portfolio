@@ -2,6 +2,8 @@ import Contact from "../components/terminal-components/Contact";
 import About from "../components/terminal-components/About";
 import Help from "../components/terminal-components/Help";
 import Skills from "../components/terminal-components/Skills";
+import { projects } from "@/lib/data/Projects";
+import { ProjectCard } from "../(gui)/projects/components/ProjectCard";
 
 interface handleInputProps {
   command: string;
@@ -187,17 +189,48 @@ export const handleInput = ({
         },
       ]);
       break;
-    case "hire me":
+    case "cat resume":
       setHistory((prev) => [
         ...prev,
         {
           command: command,
           output: (
-            <span className="text-terminal-text">{`sending email...`}</span>
+            <iframe
+              src="/anas-cv.pdf"
+              className="w-[550px] h-[700px] border border-zinc-800 rounded-lg"
+            />
           ),
         },
       ]);
       break;
+    case "ls projects":
+      setHistory((prev) => [
+        ...prev,
+        {
+          command: command,
+          output: (
+            <div className="mt-4">
+              <p className="text-terminal-text text-sm mb-3">
+                Available projects:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {projects.map((project, i) => (
+                  <ProjectCard
+                    key={i}
+                    project={project}
+                    onHover={() => {}}
+                    onLeave={() => {}}
+                    index={i}
+                    isHovered
+                  />
+                ))}
+              </div>
+            </div>
+          ),
+        },
+      ]);
+      break;
+
     default:
       setHistory((prev) => [
         ...prev,
