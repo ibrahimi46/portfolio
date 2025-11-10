@@ -1,9 +1,9 @@
-import Terminal from "./terminal/Terminal";
+import Gui from "./(gui)/gui/page";
 
 export default function Home() {
   return (
-    <main className="h-screen w-screen bg-dark p-2">
-      <Terminal />
+    <main className="h-screen w-screen overflow-x-hidden scrollbar-hide font-roboto">
+      <Gui />
     </main>
   );
 }

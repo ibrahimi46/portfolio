@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { handleInput } from "../utils/handleInput";
 import { motion } from "framer-motion";
 import { Monitor } from "lucide-react";
+import Link from "next/link";
 
-const mockHistory = [{ command: "pwd", output: "/anas-portfolio" }];
 const validCommands = [
   "help",
   "ls",
@@ -18,6 +18,9 @@ const validCommands = [
   "skills",
   "contact",
   "resume",
+  "linkedin",
+  "vim",
+  "nano",
 ];
 
 const Terminal = () => {
@@ -82,6 +85,23 @@ const Terminal = () => {
   }, []);
 
   useEffect(() => {
+    if (bootComplete) {
+      const timeout = setTimeout(() => {
+        setHistory([
+          {
+            command: "",
+            output: "Welcome! Type 'help' for available commands.",
+          },
+        ]);
+
+        return () => clearTimeout(timeout);
+      }, 0);
+
+      inputRef.current?.focus();
+    }
+  }, [bootComplete]);
+
+  useEffect(() => {
     if (!bootComplete) return;
 
     if (artIndex < asciiArt.length) {
@@ -101,30 +121,29 @@ const Terminal = () => {
   }, [history, bootComplete, input]);
 
   return (
-    <motion.div
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+    <div
       className="bg-terminal-bg text-terminal-text p-7
-      h-full w-full relative
-      border-[1px] border-light/20 rounded-md
-      text-sm sm:text-lg overflow-auto scrollbar-hide
+      h-screen w-screen text-[12px] sm:text-[16px] lg:text-lg overflow-auto scrollbar-hide
       "
       ref={scrollRef}
     >
       {/** GUI switch */}
-      <div
+      <Link
+        href={"/gui"}
         className="flex items-center gap-2 px-4 py-[2px] rounded-lg border-[0.5px] border-light/20 cursor-pointer
-        hover:border-light/30 transition-all duration-300 ease-in-out absolute top-3 right-3
+        hover:border-light/30 transition-all duration-300 ease-in-out fixed top-5 right-5
         "
       >
         <Monitor className="h-4 w-4" />
         <span>GUI</span>
-      </div>
+      </Link>
       {bootHistory.length > 0 &&
         bootHistory.map((bootMsg, idx) => {
           return (
-            <p key={idx} className="text-terminal-valid text-sm">
+            <p
+              key={idx}
+              className="text-terminal-valid text-[12px] sm:text-[16px] lg:text-lg"
+            >
               {bootMsg}
             </p>
           );
@@ -158,7 +177,7 @@ const Terminal = () => {
 
       {bootComplete && (
         <div className="flex gap-2 mt-4">
-          <div>
+          <div className="text-nowrap">
             <span className="text-terminal-prompt">┌──(</span>
             <span className="text-terminal-accent">anas</span>
             <span className="text-terminal-prompt">㉿</span>
@@ -206,7 +225,7 @@ const Terminal = () => {
           </div>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 };
 
