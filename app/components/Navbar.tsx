@@ -17,13 +17,13 @@ const Navbar = () => {
           Projects
         </Link>
         <Link
-          href="/projects"
+          href="/resume"
           className="hover:opacity-80 transition-all duration-300"
         >
           Resume
         </Link>
         <Link
-          href="/resume"
+          href="/contact"
           className="hover:opacity-80 transition-all duration-300"
         >
           Contact
