@@ -5,6 +5,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: #000;
 }
 
 body {
@@ -12,4 +13,18 @@ body {
   overscroll-behavior: none;
   padding: 0;
   margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(28, 28, 27);
+  border-radius: 4px;
 }

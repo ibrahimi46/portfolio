@@ -6,21 +6,7 @@ import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import SkillCard from "@/components/ui/SkillCard";
 import { SiteFooter } from "@/components/ui/SiteFooter";
-
-const skills = [
-  {
-    title: "Frontend Development",
-    desc: "React, Next.js, TypeScript, Tailwind CSS",
-  },
-  {
-    title: "Backend Development",
-    desc: "Node.js, Express, MongoDB, PostgreSQL",
-  },
-  {
-    title: "Machine Learning",
-    desc: "Scikit Learn, Seaborn, Pandas, Numpy, Matplotlib",
-  },
-];
+import { featuredSkills } from "@/lib/data/resume";
 
 const Gui = () => {
   return (
@@ -58,9 +44,9 @@ const Gui = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-20 bg-purple-500"></span>
+                <span className="absolute -left-4 top-12 transform -translate-y-1/2 w-1 h-24 bg-blue-500"></span>
                 <h2
-                  className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-purple-300 pl-2 mb-8 uppercase"
+                  className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-blue-300 pl-2 mb-6 uppercase"
                   data-cursor-text
                 >
                   Full Stack Developer
@@ -86,7 +72,7 @@ const Gui = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <Link
-                href={""}
+                href={"/projects"}
                 className="border border-white/20 w-fit rounded-full flex items-center px-6 py-2 text-white bg-black font-semibold text-sm hover:bg-white hover:text-black transition-all duration-300"
               >
                 View Projects <ArrowRight className="ml-2 h-4 w-4" />
@@ -105,7 +91,7 @@ const Gui = () => {
         </section>
 
         {/** Featured section */}
-        <section className="min-h-[calc(100vh-12px)] bg-gray-600 flex flex-col justify-center px-6 md:px-12 bg-gradient-to-b from-black to-purple-500">
+        <section className="min-h-[calc(100vh-12px)] bg-gray-600 flex flex-col justify-center px-6 md:px-12 bg-gradient-to-b from-black to-blue-950">
           <div className="max-w-4xl mx-auto">
             <motion.h2
               className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 md:gap-12"
@@ -119,7 +105,7 @@ const Gui = () => {
             </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-              {skills.map((skill, index) => (
+              {featuredSkills.map((skill, index) => (
                 <SkillCard
                   key={index}
                   title={skill.title}

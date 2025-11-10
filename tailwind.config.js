@@ -23,7 +23,7 @@ module.exports = {
         light: "#f1f0ea",
         dark: "#252422",
         terminal: {
-          bg: "#1e1e2e",
+          bg: "#000000",
           text: "#cdd6f4",
           prompt: "#89b4fa",
           input: "#cba6f7",

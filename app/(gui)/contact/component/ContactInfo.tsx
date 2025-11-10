@@ -48,7 +48,7 @@ const ContactInfo = () => {
         <h3 className="font-medium">Connect with me</h3>
         <div className="flex space-x-4">
           <a
-            href="https://github.asdfsfd"
+            href="https://github.com/ibrahimi46"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition-colors"
@@ -57,7 +57,7 @@ const ContactInfo = () => {
             <span className="sr-only">GitHub</span>
           </a>
           <a
-            href="httpsdasfasdf"
+            href="https://www.linkedin.com/in/a-ibrahimi/"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition-colors"

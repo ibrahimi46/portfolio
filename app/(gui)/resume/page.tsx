@@ -32,7 +32,8 @@ export default function ResumePage() {
             <h1 className="text-4xl md:text-5xl font-bold">Resume</h1>
           </div>
           <a
-            href="/Anas_Ibrahimi.pdf"
+            href="https://drive.google.com/file/d/1a5rjo-lyvIbHb0fZGzXoIEJoCSPR6iNS/view?usp=share_link"
+            target="__blank"
             download
             className="mt-6 md:mt-0 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-white/90 transition-all flex items-center"
           >

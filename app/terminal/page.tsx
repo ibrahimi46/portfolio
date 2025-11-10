@@ -121,14 +121,9 @@ const Terminal = () => {
   }, [history, bootComplete, input]);
 
   return (
-    <motion.div
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+    <div
       className="bg-terminal-bg text-terminal-text p-7
-      h-full w-full relative
-      border-[1px] border-light/20 rounded-md
-      text-[12px] sm:text-[16px] lg:text-lg overflow-auto scrollbar-hide
+      h-screen w-screen text-[12px] sm:text-[16px] lg:text-lg overflow-auto scrollbar-hide
       "
       ref={scrollRef}
     >
@@ -230,7 +225,7 @@ const Terminal = () => {
           </div>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 };
 
