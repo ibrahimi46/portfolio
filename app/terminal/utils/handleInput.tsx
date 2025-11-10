@@ -1,7 +1,9 @@
-import Contact from "../components/terminal-components/Contact";
-import About from "../components/terminal-components/About";
-import Help from "../components/terminal-components/Help";
-import Skills from "../components/terminal-components/Skills";
+import Contact from "../components/Contact";
+import About from "../components/About";
+import Help from "../components/Help";
+import Skills from "../components/Skills";
+import { projects } from "@/lib/data/Projects";
+import { ProjectCard } from "../../(gui)/projects/components/ProjectCard";
 
 interface handleInputProps {
   command: string;
@@ -24,7 +26,7 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <span className="text-terminal-valid">
+            <span className="text-terminal-text">
               bin/ &nbsp; projects/ &nbsp; hpc/ &nbsp; docs/
             </span>
           ),
@@ -40,12 +42,26 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <div className="text-terminal-valid">
+            <div className="text-terminal-text">
               You’re a curious visitor exploring my portfolio 👀
             </div>
           ),
         },
       ]);
+      break;
+    case "hire me":
+      setHistory((prev) => [
+        ...prev,
+        {
+          command: command,
+          output: (
+            <div className="text-terminal-text">sending email to Anas...</div>
+          ),
+        },
+      ]);
+      break;
+    case "exit":
+      window.location.href = "/";
       break;
     case "sudo rm -rf":
       setHistory((prev) => [
@@ -78,7 +94,7 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <span className="text-terminal-valid">
+            <span className="text-terminal-text">
               🗓️{" "}
               {new Date().toLocaleString("en-US", {
                 weekday: "short",
@@ -160,7 +176,7 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <span className="text-terminal-valid">{`using vi at this time and age? not cool! try 'vim' maybe...`}</span>
+            <span className="text-terminal-text">{`using vi at this time and age? not cool! try 'vim' maybe...`}</span>
           ),
         },
       ]);
@@ -171,7 +187,7 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <span className="text-terminal-valid">{`vim is so outdated. how about use 'nano'?`}</span>
+            <span className="text-terminal-text">{`vim is so outdated. how about use 'nano'?`}</span>
           ),
         },
       ]);
@@ -182,22 +198,53 @@ export const handleInput = ({
         {
           command: command,
           output: (
-            <span className="text-terminal-valid">{`just use vscode at this point (:`}</span>
+            <span className="text-terminal-text">{`just use vscode at this point (:`}</span>
           ),
         },
       ]);
       break;
-    case "hireme":
+    case "cat resume":
       setHistory((prev) => [
         ...prev,
         {
           command: command,
           output: (
-            <span className="text-terminal-valid">{`just use vscode at this point (:`}</span>
+            <iframe
+              src="/anas-cv.pdf"
+              className="w-[550px] h-[700px] border border-zinc-800 rounded-lg"
+            />
           ),
         },
       ]);
       break;
+    case "ls projects":
+      setHistory((prev) => [
+        ...prev,
+        {
+          command: command,
+          output: (
+            <div className="mt-4">
+              <p className="text-terminal-text text-sm mb-3">
+                Available projects:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {projects.map((project, i) => (
+                  <ProjectCard
+                    key={i}
+                    project={project}
+                    onHover={() => {}}
+                    onLeave={() => {}}
+                    index={i}
+                    isHovered
+                  />
+                ))}
+              </div>
+            </div>
+          ),
+        },
+      ]);
+      break;
+
     default:
       setHistory((prev) => [
         ...prev,

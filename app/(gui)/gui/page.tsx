@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowDownCircle } from "lucide-react";
 import Link from "next/link";
 
-import Navbar from "../../components/Navbar";
+import Navbar from "@/components/layout/Navbar";
 import SkillCard from "@/components/ui/SkillCard";
-import { SiteFooter } from "@/components/ui/SiteFooter";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { featuredSkills } from "@/lib/data/resume";
 
 const Gui = () => {
@@ -72,10 +72,10 @@ const Gui = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <Link
-                href={"/projects"}
+                href={"/contact"}
                 className="border border-white/20 w-fit rounded-full flex items-center px-6 py-2 text-white bg-black font-semibold text-sm hover:bg-white hover:text-black transition-all duration-300"
               >
-                View Projects <ArrowRight className="ml-2 h-4 w-4" />
+                Contact Me <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </motion.div>
           </motion.div>
@@ -110,6 +110,7 @@ const Gui = () => {
                   key={index}
                   title={skill.title}
                   description={skill.desc}
+                  index={index}
                 />
               ))}
             </div>
@@ -122,10 +123,10 @@ const Gui = () => {
               viewport={{ once: true }}
             >
               <Link
-                href="/resume"
+                href="/projects"
                 className="border border-white/20 w-fit rounded-full flex items-center px-6 py-2 text-white bg-black font-semibold text-sm hover:bg-white hover:text-black transition-all duration-300"
               >
-                View Full Resume <ArrowRight className="ml-2 h-4 w-4" />
+                View Projects <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </motion.div>
           </div>

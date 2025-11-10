@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { handleInput } from "../utils/handleInput";
-import { motion } from "framer-motion";
+import { handleInput } from "./utils/handleInput";
 import { Monitor } from "lucide-react";
 import Link from "next/link";
+import LoadingModal from "./components/LoadingModal";
 
 const validCommands = [
   "help",
@@ -21,59 +21,32 @@ const validCommands = [
   "linkedin",
   "vim",
   "nano",
+  "hire me",
+  "ls projects",
+  "cat resume",
+  "exit",
+  "repo",
 ];
 
 const Terminal = () => {
   const [history, setHistory] = useState<
     { command: string; output: React.ReactNode }[]
   >([]);
-  const [bootHistory, setBootHistory] = useState<string[]>([]);
+
   const [isTyping, setIsTyping] = useState<boolean>(false);
   const [input, setInput] = useState<string>("");
-  const [bootComplete, setBootComplete] = useState(false);
+
   const [showAscii, setShowAscii] = useState(true);
   const [artIndex, setArtIndex] = useState(0);
   const [isInputValid, setIsInputValid] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const bootMessages = [
-    "⚙️ Loading modules...",
-    "📦 Installing dependencies...",
-    "🧠 Initializing terminal...",
-    "✅ System ready.",
-    "💡 Type 'help' to see available commands.",
-  ];
-
-  const asciiArt = `
-   ________  ________   ________  ________           ___  ________  ________  ________  ___  ___  ___  _____ ______   ___     
-│╲   __  ╲│╲   ___  ╲│╲   __  ╲│╲   ____╲         │╲  ╲│╲   __  ╲│╲   __  ╲│╲   __  ╲│╲  ╲│╲  ╲│╲  ╲│╲   _ ╲  _   ╲│╲  ╲    
-╲ ╲  ╲│╲  ╲ ╲  ╲╲ ╲  ╲ ╲  ╲│╲  ╲ ╲  ╲___│_        ╲ ╲  ╲ ╲  ╲│╲ ╱╲ ╲  ╲│╲  ╲ ╲  ╲│╲  ╲ ╲  ╲╲╲  ╲ ╲  ╲ ╲  ╲╲╲__╲ ╲  ╲ ╲  ╲   
- ╲ ╲   __  ╲ ╲  ╲╲ ╲  ╲ ╲   __  ╲ ╲_____  ╲        ╲ ╲  ╲ ╲   __  ╲ ╲   _  _╲ ╲   __  ╲ ╲   __  ╲ ╲  ╲ ╲  ╲╲│__│ ╲  ╲ ╲  ╲  
-  ╲ ╲  ╲ ╲  ╲ ╲  ╲╲ ╲  ╲ ╲  ╲ ╲  ╲│____│╲  ╲        ╲ ╲  ╲ ╲  ╲│╲  ╲ ╲  ╲╲  ╲╲ ╲  ╲ ╲  ╲ ╲  ╲ ╲  ╲ ╲  ╲ ╲  ╲    ╲ ╲  ╲ ╲  ╲ 
-   ╲ ╲__╲ ╲__╲ ╲__╲╲ ╲__╲ ╲__╲ ╲__╲____╲_╲  ╲        ╲ ╲__╲ ╲_______╲ ╲__╲╲ _╲╲ ╲__╲ ╲__╲ ╲__╲ ╲__╲ ╲__╲ ╲__╲    ╲ ╲__╲ ╲__╲
-    ╲│__│╲│__│╲│__│ ╲│__│╲│__│╲│__│╲_________╲        ╲│__│╲│_______│╲│__│╲│__│╲│__│╲│__│╲│__│╲│__│╲│__│╲│__│     ╲│__│╲│__│
-                                  ╲│_________│                                                                              
-                                                                                                                            
-                                                                                                                            `;
-
   useEffect(() => {
-    bootMessages.forEach((msg, idx) => {
-      setTimeout(() => {
-        setBootHistory((prev) => [...prev, msg]);
-
-        // check if last message
-        if (idx === bootMessages.length - 1) {
-          setTimeout(() => setBootComplete(true), 1000);
-        }
-      }, idx * 1200);
-    });
-  }, []);
-
-  useEffect(() => {
-    if (bootComplete) inputRef.current?.focus();
+    if (!isLoading) inputRef.current?.focus();
   });
 
   useEffect(() => {
@@ -85,12 +58,12 @@ const Terminal = () => {
   }, []);
 
   useEffect(() => {
-    if (bootComplete) {
+    if (!isLoading) {
       const timeout = setTimeout(() => {
         setHistory([
           {
             command: "",
-            output: "Welcome! Type 'help' for available commands.",
+            output: "welcome! type 'help' for available commands.",
           },
         ]);
 
@@ -99,92 +72,75 @@ const Terminal = () => {
 
       inputRef.current?.focus();
     }
-  }, [bootComplete]);
+  }, [isLoading]);
 
-  useEffect(() => {
-    if (!bootComplete) return;
+  // useEffect(() => {
+  //   if (!bootComplete) return;
 
-    if (artIndex < asciiArt.length) {
-      const interval = setTimeout(() => {
-        setArtIndex((prev) => prev + 1);
-      }, 2);
+  //   if (artIndex < asciiArt.length) {
+  //     const interval = setTimeout(() => {
+  //       setArtIndex((prev) => prev + 1);
+  //     }, 2);
 
-      return () => clearTimeout(interval);
-    }
-  }, [artIndex, bootComplete, asciiArt.length]);
+  //     return () => clearTimeout(interval);
+  //   }
+  // }, [artIndex, bootComplete, asciiArt.length]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({
       top: scrollRef.current.scrollHeight,
       behavior: "smooth",
     });
-  }, [history, bootComplete, input]);
+  }, [history, input]);
 
   return (
     <div
       className="bg-terminal-bg text-terminal-text p-7
-      h-screen w-screen text-[12px] sm:text-[16px] lg:text-lg overflow-auto scrollbar-hide
+      h-screen w-screen text-[12px] sm:text-[16px] lg:text-lg font-mono overflow-auto scrollbar-hide
       "
       ref={scrollRef}
     >
+      {isLoading && <LoadingModal onComplete={() => setIsLoading(false)} />}
       {/** GUI switch */}
       <Link
-        href={"/gui"}
-        className="flex items-center gap-2 px-4 py-[2px] rounded-lg border-[0.5px] border-light/20 cursor-pointer
-        hover:border-light/30 transition-all duration-300 ease-in-out fixed top-5 right-5
-        "
+        href={"/"}
+        className="flex items-center gap-2 px-6 py-2 fixed top-5 right-5  border border-white/20 w-fit rounded-full text-white bg-black font-semibold text-sm hover:bg-white hover:text-black transition-all duration-300"
       >
         <Monitor className="h-4 w-4" />
         <span>GUI</span>
       </Link>
-      {bootHistory.length > 0 &&
-        bootHistory.map((bootMsg, idx) => {
-          return (
-            <p
-              key={idx}
-              className="text-terminal-valid text-[12px] sm:text-[16px] lg:text-lg"
-            >
-              {bootMsg}
-            </p>
-          );
-        })}
-
-      {bootComplete && (
-        <div className="font-mono text-[4px] mt-4 sm:text-[8px] md:text-[10px] lg:text-[14px]  whitespace-pre leading-[1.1]">
-          {asciiArt.slice(0, artIndex)}
-        </div>
-      )}
 
       {history.length > 0 &&
         history.map((history, idx) => {
           return (
             <div key={idx} className="mt-4">
-              <div>
-                <span className="text-terminal-prompt">┌──(</span>
-                <span className="text-terminal-accent">anas</span>
-                <span className="text-terminal-prompt">㉿</span>
-                <span className="text-terminal-accent">ibrahimi</span>
-                <span className="text-terminal-prompt">)-[</span>
-                <span className="text-terminal-prompt">~</span>
-                <span className="text-terminal-prompt">]</span>
+              <div className="text-terminal-prompt">
+                <span>┌──(</span>
+                <span>anas</span>
+                <span>㉿</span>
+                <span>ibrahimi</span>
+                <span>)-[</span>
+                <span>~</span>
+                <span>]</span>
               </div>
-              <span className="text-terminal-prompt">
-                └─$&nbsp;&nbsp;&nbsp;{history.output}
-              </span>
+              <div className="flex gap-4">
+                <span className="text-terminal-prompt">└─$</span>
+                <span className="text-terminal-text">{history.output}</span>
+              </div>
             </div>
           );
         })}
 
-      {bootComplete && (
+      {!isLoading && (
         <div className="flex gap-2 mt-4">
-          <div className="text-nowrap">
-            <span className="text-terminal-prompt">┌──(</span>
-            <span className="text-terminal-accent">anas</span>
-            <span className="text-terminal-prompt">㉿</span>
-            <span className="text-terminal-accent">ibrahimi</span>
-            <span className="text-terminal-prompt">)-[</span>
-            <span className="text-terminal-prompt">~</span>
-            <span className="text-terminal-prompt">]</span>
+          <div className="text-nowrap text-terminal-prompt">
+            <span>┌──(</span>
+            <span>anas</span>
+            <span>㉿</span>
+            <span>ibrahimi</span>
+            <span>)-[</span>
+            <span>~</span>
+            <span>]</span>
           </div>
           {/** Input box */}
           <div>
@@ -213,7 +169,6 @@ const Terminal = () => {
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();
-                  if (bootHistory.length > 0) setBootHistory([]);
                   if (input.length > 0) audioRef.current?.play();
                   setShowAscii(false);
                   handleInput({ command: input, setHistory, setInput });

@@ -14,7 +14,7 @@ export const projects: Project[] = [
       "Drizzle ORM",
     ],
     github: "https://github.com/ibrahimi46/pinkmart",
-    live: "https://pinkmart.vercel.app",
+    live: "https://pink-mart.vercel.app",
     featured: true,
   },
   {
@@ -23,14 +23,14 @@ export const projects: Project[] = [
       "Responsive AI chat application with real-time messaging and dynamic UI, inspired by Google Gemini.",
     tags: ["React", "TypeScript", "Tailwind CSS", "Vercel AI SDK"],
     github: "https://github.com/ibrahimi46/gemini-clone",
-    live: "https://gemini-clone-ibrahimi.vercel.app",
+    live: "https://gemini-clone-app-orpin.vercel.app",
   },
   {
     title: "SLURM Cluster Setup Toolkit",
     description:
       "Bash automation toolkit for deploying SLURM clusters with NFS, Munge, and node provisioning.",
     tags: ["Bash", "Linux", "HPC", "SLURM", "NFS", "Munge"],
-    github: "https://github.com/ibrahimi46/slurm-toolkit",
+    github: "https://github.com/ibrahimi46/slurm-cluster-setup",
     
   },
 ];

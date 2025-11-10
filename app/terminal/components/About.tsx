@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className="text-terminal-valid">
+    <div className="text-terminal-text">
       👋 Hi — I’m Anas Ibrahimi, a CS student & full-stack developer in Jeddah
       🇸🇦
       <br />

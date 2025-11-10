@@ -1,6 +1,6 @@
 const Help = () => {
   return (
-    <div className="text-terminal-valid">
+    <div className="text-terminal-text">
       <p className="mb-2">available commands:</p>
       <ul className="ml-4 space-y-1.5">
         <li>
@@ -16,6 +16,14 @@ const Help = () => {
         </li>
         <li>
           <span className="text-terminal-input">resume</span> — open my CV (PDF)
+        </li>
+        <li>
+          <span className="text-terminal-input">cat resume</span> — open my CV
+          preview
+        </li>
+        <li>
+          <span className="text-terminal-input">ls projects</span> — quick
+          preview of my recent projects
         </li>
         <li>
           <span className="text-terminal-input">repo</span> — open my github

@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 import { ArrowLeft } from "lucide-react";
-import ContactInfo from "./component/ContactInfo";
-import ContactForm from "./component/ContactForm";
+import ContactInfo from "./components/ContactInfo";
+import ContactForm from "./components/ContactForm";
 
 const ContactPage = () => {
   return (
